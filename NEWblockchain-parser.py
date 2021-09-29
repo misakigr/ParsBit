@@ -19,7 +19,7 @@ def reverse(input):
             T = input[i*2] + input[i*2+1]
             Res = T + Res
             T = ''
-        return (Res);
+        return (Res)
 
 def merkle_root(lst): # https://gist.github.com/anonymous/7eb080a67398f648c1709e41890f8c44
     sha256d = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
@@ -53,9 +53,9 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = 'C:/2/' # Directory where blk*.dat files are stored
+dirA = 'D:\Загрузки\lockchain\locks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'C:/1/' # Directory where to save parsing results
+dirB = 'D:\Загрузки\lockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
@@ -254,7 +254,7 @@ for i in fList:
     # for j in resList:
     #     f.write(j + '\n')
     # f.close()
-    os.remove(t)
+    #os.remove(t) удаляем исходный файл
     
     
 # dirA = 'D:/misak/2/' # Directory where blk*.dat files are stored
