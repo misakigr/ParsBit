@@ -45,6 +45,7 @@ print('z2 = 0x' + res)
 print('K = GF(p)')
 print('K((z1*s2 - z2*s1)/(r*(s1-s2)))')
 
+# print () Это просто пробел
 print()
 
 header = input("Введите длинное число:")
