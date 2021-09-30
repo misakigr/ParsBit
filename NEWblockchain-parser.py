@@ -60,7 +60,8 @@ dirB = 'D:\Загрузки\lockchain/' # Directory where to save parsing result
 
 fList = os.listdir(dirA)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
-fList.sort()
+fList.sort(reverse=True)
+#Источник: https://pythonim.ru/list/metod-sort-python)
 
 for i in fList:
     nameSrc = i
@@ -254,7 +255,7 @@ for i in fList:
     # for j in resList:
     #     f.write(j + '\n')
     # f.close()
-    #os.remove(t) удаляем исходный файл
+    os.remove(t)
     
     
 # dirA = 'D:/misak/2/' # Directory where blk*.dat files are stored
