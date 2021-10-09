@@ -1,6 +1,6 @@
+
+
 import re
-
-
 i = 1
 with open('list-addresses.txt') as file:
     while i <= 24:
