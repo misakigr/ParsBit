@@ -4,7 +4,7 @@
 #Developed by: ~geniusprodigy
 #I have implemented and modified so that it is possible to automatically check list-based Bitcoin Addresses to work with massive volumes of scans.
 import telebot
-bot = telebot.TeleBot('1220014532:AAEii30J-I6GsLBYmy7yRULT6AX4wCUVXrI')
+bot = telebot.TeleBot('bot:token')
 
 
 import sys
@@ -106,10 +106,10 @@ def check_balance(address):
         if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0):
             bb = 1
             if bb == 1:
-                    bot.send_message(409229183, (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
+                    bot.send_message(№:token, (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
                     bb = 0
             #Отправка в чат телеграмм сообщения с суммой
-            #bot.send_message(409229183, (btc_tokens/SATOSHIS_PER_BTC))
+           
 
             #If you have a balance greater than 0 you will hear the bell
             sys.stdout.write ('\a\a\a')
