@@ -3,8 +3,8 @@
 
 #Developed by: ~geniusprodigy
 #I have implemented and modified so that it is possible to automatically check list-based Bitcoin Addresses to work with massive volumes of scans.
-import telebot
-bot = telebot.TeleBot('bot:token')
+#import telebot
+#bot = telebot.TeleBot('bot:token')
 
 
 import sys
@@ -105,9 +105,9 @@ def check_balance(address):
 
         if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0):
             bb = 1
-            if bb == 1:
-                    bot.send_message(№:token, (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
-                    bb = 0
+            # if bb == 1:
+            #         bot.send_message(№:token, (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
+            #         bb = 0
             #Отправка в чат телеграмм сообщения с суммой
            
 
@@ -123,7 +123,7 @@ def check_balance(address):
                 sleep(WARN_WAIT_TIME)
 
 #Add the filename of your list of Bitcoin Addresses for check all.
-with open("D:/misak/bit/bitcoin-balance-checker/list-addresses.txt") as file:
+with open("list-addresses.txt") as file:
     for line in file:
 
     	arq1 = open('addresses-with-balance-yay.txt', 'a')
