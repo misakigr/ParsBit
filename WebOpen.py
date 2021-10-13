@@ -1,6 +1,9 @@
 import webbrowser
-webbrowser.open('https://sagecell.sagemath.org/', new=2)
-webbrowser.get()
+import time
+import os
+webbrowser.open('https://sagecell.sagemath.org/')
+time.sleep(5)
 print ("Successed")
-#time.sleep(5)
-webbrowser.close(webbrowser.get())
+
+browserExe = "chrome.exe"
+os.system("taskkill /f /im "+browserExe)
