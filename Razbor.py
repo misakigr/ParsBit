@@ -2,7 +2,7 @@ resList = []
 word = '022100'
 k = 0
 i = 0
-with open('razbor.txt') as file:
+with open('trans.txt') as file:
     for line in file:
         #С начала
         text = str(line)
@@ -119,7 +119,7 @@ with open('razbor.txt') as file:
 
         resList.append(b_end)
 
-        file_name = 'list-addresses_{}.txt'.format(i)
+        file_name = 'raz_tranz/list-tranz_{}.txt'.format(i)
         f = open(file_name, 'w')
         for j in resList:
             f.write(j + '\n')
