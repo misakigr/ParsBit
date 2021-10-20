@@ -3,8 +3,8 @@
 
 #Developed by: ~geniusprodigy
 #I have implemented and modified so that it is possible to automatically check list-based Bitcoin Addresses to work with massive volumes of scans.
-#import telebot
-#bot = telebot.TeleBot('bot:token')
+import telebot
+bot = telebot.TeleBot('bot:токен')
 
 
 import sys
@@ -30,7 +30,7 @@ file_lines = {}
 
 
 with open(filename) as f:
-   	content = f.readlines() 
+   	content = f.readlines()
 
 for line in content:
    	file_lines[initial_line] = line.strip()
@@ -77,9 +77,9 @@ def check_balance(address):
             print( "Checking... " + str(reading_state) )
             break
             sleep(60*reading_state)
-            
+
     print( "\nBitcoin Address = " + check_address )
-    
+
 
     blockchain_info_array = []
     tag = ''
@@ -94,22 +94,27 @@ def check_balance(address):
     for i, btc_tokens in enumerate(blockchain_info_array):
 
         sys.stdout.write("%s \t= " % blockchain_tags_json[i])
-        
-       
+
+
         if btc_tokens > 0.0:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) )
-                            
-                
+            bb = 1
+            if bb == 1:
+               bot.send_message('409229183', (btc_tokens/SATOSHIS_PER_BTC))
+               bot.send_message('409229183', 'Был баланс')# типа отправляешь сообщение
+               bb = 0
+
+
         else:
             print( "0 Bitcoin" );
 
         if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0):
-            bb = 1
-            # if bb == 1:
-            #         bot.send_message(№:token, (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
-            #         bb = 0
+             # bb = 1
+             # if bb == 1:
+             #    bot.send_message('409229183', (btc_tokens/SATOSHIS_PER_BTC))  # типа отправляешь сообщение
+             #    bb = 0
             #Отправка в чат телеграмм сообщения с суммой
-           
+
 
             #If you have a balance greater than 0 you will hear the bell
             sys.stdout.write ('\a\a\a')
@@ -133,10 +138,10 @@ with open("list-addresses.txt") as file:
     	check_balance(address)
 
     	#print("__________________________________________________\n")
-        
-        
-        
-        
+
+
+
+
         #Мой код удаление первой строки
     	filename = 'list-addresses.txt'
     	line_to_delete = 1
@@ -144,7 +149,7 @@ with open("list-addresses.txt") as file:
     	file_lines = {}
 
     	with open(filename) as f:
-        	content = f.readlines() 
+        	content = f.readlines()
 
     	for line in content:
         	file_lines[initial_line] = line.strip()

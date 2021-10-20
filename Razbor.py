@@ -22,18 +22,21 @@ with open('trans.txt') as file:
         c = (b[:64])
         b = (b[64:])
         resList.append(c)
-        #sum(b, 64) #не получилось
+
 
         c = (b[:8])
         b = (b[8:])
         resList.append(c)
 
-        if word in line:
-            resList.append(b.partition('022100')[0] + word)
-            b = b.partition('022100')[2]
-        else:
+        if '0220' in line:
             resList.append(b.partition('0220')[0] + '0220')
             b = b.partition('0220')[2]
+
+
+        else:
+            resList.append(b.partition('022100')[0] + word)
+            b = b.partition('022100')[2]
+
 
         c = (b[:64])
         b = (b[64:])
@@ -53,8 +56,13 @@ with open('trans.txt') as file:
         b = (b[:-86])
 
 
-        if 'ffffffff' in b:
+        if 'ffffffffff' in b:
+            k = (b.rfind('ffffffffff'))
+        elif 'fffffffff' in b:
+            k = (b.rfind('fffffffff'))
+        elif 'ffffffff' in b:
             k = (b.rfind('ffffffff'))
+
         c = (b[:k])
         b = (b[k:])
         resList.append(c)
@@ -71,23 +79,25 @@ with open('trans.txt') as file:
         b = (b[8:])
         resList.append(c)
 
-        if word in b:
-            resList.append(b.partition('022100')[0] + word)
-            b = b.partition('022100')[2]
-        else:
+        if '0220' in b:
             resList.append(b.partition('0220')[0] + '0220')
             b = b.partition('0220')[2]
+
+        else:
+            resList.append(b.partition('022100')[0] + word)
+            b = b.partition('022100')[2]
 
         c = (b[:64])
         b = (b[64:])
         resList.append(c)
 
-        if word in b:
-            resList.append(b.partition('022100')[0] + word)
-            b = b.partition('022100')[2]
-        else:
+        if '0220' in b:
             resList.append(b.partition('0220')[0] + '0220')
             b = b.partition('0220')[2]
+
+        else:
+            resList.append(b.partition('022100')[0] + word)
+            b = b.partition('022100')[2]
 
         c = (b[:64])
         b = (b[64:])
