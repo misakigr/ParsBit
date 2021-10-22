@@ -3,8 +3,8 @@
 
 #Developed by: ~geniusprodigy
 #I have implemented and modified so that it is possible to automatically check list-based Bitcoin Addresses to work with massive volumes of scans.
-import telebot
-bot = telebot.TeleBot('bot:токен')
+# import telebot
+# bot = telebot.TeleBot('bot:токен')
 
 
 import sys
@@ -27,7 +27,7 @@ line_to_delete = 1
 initial_line = 1
 file_lines = {}
 
-
+resList = []
 
 with open(filename) as f:
    	content = f.readlines()
@@ -98,11 +98,15 @@ def check_balance(address):
 
         if btc_tokens > 0.0:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) )
-            bb = 1
-            if bb == 1:
-               bot.send_message('409229183', (btc_tokens/SATOSHIS_PER_BTC))
-               bot.send_message('409229183', 'Был баланс')# типа отправляешь сообщение
-               bb = 0
+            f = open('listing_byl.txt', 'a')
+            f.write(str(btc_tokens/SATOSHIS_PER_BTC)  + ' ' + str(address) + '\n')
+            f.close()
+
+            # bb = 1
+            # if bb == 1:
+            #    bot.send_message('409229183', (btc_tokens/SATOSHIS_PER_BTC))
+            #    bot.send_message('409229183', 'Был баланс')# типа отправляешь сообщение
+            #    bb = 0
 
 
         else:
@@ -159,6 +163,8 @@ with open("list-addresses.txt") as file:
     	for line_number, line_content in file_lines.items():
         	if line_number != line_to_delete:f.write('{}\n'.format(line_content))
     	f.close()
+
+
     	#print('Deleted line: {}'.format(line_to_delete))
 #print "Developed by: ~geniusprodigy"
 #print "My contact on reddit: reddit.com/u/genius360\n"
@@ -169,6 +175,8 @@ with open("list-addresses.txt") as file:
 #arq1.close()
 
 #Код чтобы бот работал постоянно
+#shutdown -r -t 0
+
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)

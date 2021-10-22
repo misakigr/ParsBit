@@ -53,14 +53,14 @@ for i in fList:
                         sorted_data[last_group].append(line)
             with open('restest.txt', 'w') as filehandle:
                 for date_group, dates in sorted_data.items():
-                    if word in str(dates):
+                    if word in (str(dates)[400:]) and word in (str(dates)[:400]):
                         #print(dates)
                         # print(f"{date_group}: {dates}")
                         filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
 
             with open('restest.txt') as file:
                 for line in file:
-                    if word in line:
+                    if word in (line.partition('Input script')[2])[:120]:
                         text = str(line)
                         data = text.split(", ")
                         for temp in data:
