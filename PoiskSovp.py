@@ -53,7 +53,7 @@ for i in fList:
                         sorted_data[last_group].append(line)
             with open('restest.txt', 'w') as filehandle:
                 for date_group, dates in sorted_data.items():
-                    if word in (str(dates)[400:]) and word in (str(dates)[:400]):
+                    if word in (str(dates)[400:]) and word in (str(dates)[:400]): # Если в файле встречается первый скрипт дважды
                         #print(dates)
                         # print(f"{date_group}: {dates}")
                         filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
@@ -79,6 +79,15 @@ for i in fList:
     f.close()
     resList = []
     SortList = []
+
+    file_name = dirB + nameRes
+    file_stats = os.stat(file_name)
+    #print(f'File Size in Bytes is {file_stats.st_size}')
+    if file_stats.st_size == 0: # Если файл пустой, то удаляем его
+        os.remove(file_name)
+
+    # if itn(os.stat(dirB + nameRes)) < 0:
+    #     os.remove(dirB + nameRes)
 
 
 
