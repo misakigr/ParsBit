@@ -110,7 +110,7 @@ def check_balance(address):
 
 
         else:
-            print( "0 Bitcoin" );
+            print( "0 Bitcoin" )
 
         if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0):
              # bb = 1

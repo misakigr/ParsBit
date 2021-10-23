@@ -86,8 +86,7 @@ for i in fList:
     if file_stats.st_size == 0: # Если файл пустой, то удаляем его
         os.remove(file_name)
 
-    # if itn(os.stat(dirB + nameRes)) < 0:
-    #     os.remove(dirB + nameRes)
+
 
 
 
