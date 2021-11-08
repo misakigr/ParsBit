@@ -258,7 +258,10 @@ for i in fList:
 
     DATE_GROUP_SEPARATOR = "DateGroup"
     sorted_data = {}
-    
+
+    word = 'Inputs count = 02'  # Искомое слово
+    dorw = 'Outputs count = 1'  # Искомое слово 2
+
     # with open(t) as file:
     last_group = None
     for line in resList:
@@ -270,12 +273,11 @@ for i in fList:
             sorted_data[last_group].append(line)
     with open('restest.txt', 'w') as filehandle:
         for date_group, dates in sorted_data.items():
-            # print(f"{date_group}: {dates}")
-            filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+            if word in dates and dorw in dates:
+                    filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
 
 
-    word = 'Inputs count = 02'  # Искомое слово
-    dorw = 'Outputs count = 1'  # Искомое слово 2
+
     resList = []
     with open('restest.txt') as file:
         for line in file:
@@ -298,12 +300,12 @@ for i in fList:
             if word in line:
                 text = str(line)
                 kb = (text.partition('Input script')[2])[:79]
-                print(kb)
+                #print(kb)
                 if '0220' in kb:
-                    b = kb.partition('0220')[2]
+                    b = text.partition('0220')[2]
                     resList.append(b[:64]+'\n')
                 elif '022100' in kb:
-                    b = kb.partition('022100')[2]
+                    b = text.partition('022100')[2]
                     resList.append(b[:64] + '\n')
 
         f = open('restest.txt', 'w')
