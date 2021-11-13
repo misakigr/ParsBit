@@ -22,7 +22,7 @@ except: # if is python2
 #     if message.text.lower() == 'привет':
 #         bot.send_message(message.chat.id, 'Запуск')
 # =============================================================================
-filename = 'list-addresses.txt'
+filename = 'Lists.txt'
 line_to_delete = 1
 initial_line = 1
 file_lines = {}
@@ -132,7 +132,7 @@ def check_balance(address):
                 sleep(WARN_WAIT_TIME)
 
 #Add the filename of your list of Bitcoin Addresses for check all.
-with open("list-addresses.txt") as file:
+with open("Lists.txt") as file:
     for line in file:
 
     	arq1 = open('addresses-with-balance-yay.txt', 'a')
@@ -145,24 +145,24 @@ with open("list-addresses.txt") as file:
 
 
 
-
-        #Мой код удаление первой строки
-    	filename = 'list-addresses.txt'
-    	line_to_delete = 1
-    	initial_line = 1
-    	file_lines = {}
-
-    	with open(filename) as f:
-        	content = f.readlines()
-
-    	for line in content:
-        	file_lines[initial_line] = line.strip()
-        	initial_line += 1
-
-    	f = open(filename, "w")
-    	for line_number, line_content in file_lines.items():
-        	if line_number != line_to_delete:f.write('{}\n'.format(line_content))
-    	f.close()
+        #
+        # #Мой код удаление первой строки
+    	# filename = 'Lists.txt'
+    	# line_to_delete = 1
+    	# initial_line = 1
+    	# file_lines = {}
+        #
+    	# with open(filename) as f:
+        # 	content = f.readlines()
+        #
+    	# for line in content:
+        # 	file_lines[initial_line] = line.strip()
+        # 	initial_line += 1
+        #
+    	# f = open(filename, "w")
+    	# for line_number, line_content in file_lines.items():
+        # 	if line_number != line_to_delete:f.write('{}\n'.format(line_content))
+    	# f.close()
 
 
     	#print('Deleted line: {}'.format(line_to_delete))
@@ -179,6 +179,7 @@ with open("list-addresses.txt") as file:
 
 
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+    # bot.polling(none_stop=True)
+    pass
 
 
