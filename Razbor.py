@@ -73,8 +73,8 @@ with open('trans.txt') as file:
         resList.append(c)
 
         # 11
-        c = (b[:64])
-        b = (b[64:])
+        c = (b.partition('01000000')[0])
+        b = (b.partition('01000000')[2])
         resList.append(c)
 
         #12
