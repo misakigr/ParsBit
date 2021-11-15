@@ -59,25 +59,25 @@ for j in fList:
         res = unhexlify(res)
         res = sha256(sha256(res).digest()).hexdigest()
         # print(res)
-        print()
+        #print()
 
         c1 = 'p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141'
-        print('p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141')
+        #print('p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141')
         c2 = 'r  = 0x' + x6
-        print('r  = 0x' + x6)
+       #print('r  = 0x' + x6)
         c3 = 's1 = 0x' + x8
-        print('s1 = 0x' + x8)
+        #print('s1 = 0x' + x8)
         c4 = 's2 = 0x' + x16
-        print('s2 = 0x' + x16)
+        #print('s2 = 0x' + x16)
 
         c5 = 'z1 = 0x' + res1
-        print('z1 = 0x' + res1)
+       #print('z1 = 0x' + res1)
         c6 = 'z2 = 0x' + res
-        print('z2 = 0x' + res)
+        #print('z2 = 0x' + res)
         c7 = 'K = GF(p)'
-        print('K = GF(p)')
+        #print('K = GF(p)')
         c8 = 'K((z1*s2 - z2*s1)/(r*(s1-s2)))'
-        print('K((z1*s2 - z2*s1)/(r*(s1-s2)))')
+        #print('K((z1*s2 - z2*s1)/(r*(s1-s2)))')
 
         # Запуск браузера выполнение вычислений и возврат результата с сайта https://sagecell.sagemath.org/
         from selenium import webdriver
@@ -101,8 +101,8 @@ for j in fList:
         browser.find_element_by_xpath('//*[@id="cell"]/div[1]/button').click()
         time.sleep(5)
         result = browser.find_element_by_xpath('// *[ @ id = "cell"] / div[3] / div[1] / div / div[2]').text
-        print('Всего цифр в данном числе:', len(result))
-        print('Оно выглядит так:', result)
+        # print('Всего цифр в данном числе:', len(result))
+        # print('Оно выглядит так:', result)
 
 
 
@@ -157,7 +157,7 @@ for j in fList:
         from bitcoinaddress import Wallet
 
         wallet = Wallet(WIF)
-        print(wallet)
+        #print(wallet)
 
         file = open(dirB + nameRes, 'w')
         file.write(str(wallet))
