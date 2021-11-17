@@ -53,7 +53,7 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = 'D:\misak\lockchain\locks/' # Directory where blk*.dat files are stored
+dirA = 'D:\misak\Different\lockchain\locks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
 dirB = 'D:\misak\lockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]

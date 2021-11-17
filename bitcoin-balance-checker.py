@@ -22,24 +22,24 @@ except: # if is python2
 #     if message.text.lower() == 'привет':
 #         bot.send_message(message.chat.id, 'Запуск')
 # =============================================================================
-filename = 'Lists.txt'
-line_to_delete = 1
-initial_line = 1
-file_lines = {}
-
-resList = []
-
-with open(filename) as f:
-   	content = f.readlines()
-
-for line in content:
-   	file_lines[initial_line] = line.strip()
-   	initial_line += 1
-
-f = open(filename, "w")
-for line_number, line_content in file_lines.items():
-   	if line_number != line_to_delete:f.write('{}\n'.format(line_content))
-f.close()
+# filename = 'Lists.txt' #Удаление первой строки
+# line_to_delete = 1
+# initial_line = 1
+# file_lines = {}
+#
+# resList = []
+#
+# with open(filename) as f:
+#    	content = f.readlines()
+#
+# for line in content:
+#    	file_lines[initial_line] = line.strip()
+#    	initial_line += 1
+#
+# f = open(filename, "w")
+# for line_number, line_content in file_lines.items():
+#    	if line_number != line_to_delete:f.write('{}\n'.format(line_content))
+# f.close()
 
 def check_balance(address):
 
