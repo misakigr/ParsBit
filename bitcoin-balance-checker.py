@@ -38,6 +38,7 @@ def check_balance(address):
         try:
             htmlfile = urlopen("https://blockchain.info/address/%s?format=json" % check_address, timeout=10)
             htmltext = htmlfile.read().decode('utf-8')
+            #print(htmltext)
             reading_state = 0
         except:
             reading_state += 1

@@ -77,9 +77,13 @@ with open('trans.txt') as file:
                 c = (b.partition('01000000')[0])
                 clen = len(str(c))
                 b = (b[clen:])
-        else:
-            if '00000000' in b[:80]:
+        elif '00000000' in b[:80]:
                 c = (b.partition('00000000')[0])
+                clen = len(str(c))
+                b = (b[clen:])
+        else:
+            if '00000001' in b[:80]:
+                c = (b.partition('00000001')[0])
                 clen = len(str(c))
                 b = (b[clen:])
         # c = (b.partition('01000000')[0])
