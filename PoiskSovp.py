@@ -83,8 +83,8 @@ for i in fList:
     file_name = dirB + nameRes
     file_stats = os.stat(file_name)
     #print(f'File Size in Bytes is {file_stats.st_size}')
-    if file_stats.st_size == 0: # Если файл пустой, то удаляем его
-        os.remove(file_name)
+    # if file_stats.st_size == 0: # Если файл пустой, то удаляем его
+    #     os.remove(file_name)
 
 
 
