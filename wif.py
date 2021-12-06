@@ -4,7 +4,7 @@
 import codecs  #If not installed: "pip3 install codecs"
 import hashlib
 # отсюда взять полученный результат https://sagecell.sagemath.org/
-bits_hex = hex(58832975183018660503882933733292223131118762467480179232299334716288832541150)
+bits_hex = hex(f0e8895b23bbe0e60b8150028e9de2e1f1b05eb924d7b0972e755229b315be41)
 
 # 0x66d891b5ed7f51e5044be6a7ebe4e2eae32b960f5aa0883f7cc0ce4fd6921e31
 private_key = bits_hex[2:]

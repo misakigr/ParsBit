@@ -60,24 +60,31 @@ for j in fList:
         res = sha256(sha256(res).digest()).hexdigest()
         # print(res)
         #print()
-
+        c = ""
         c1 = 'p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141'
         #print('p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141')
+        c = c + c1 + '\n'
         c2 = 'r  = 0x' + x6
        #print('r  = 0x' + x6)
+        c = c + c2
         c3 = 's1 = 0x' + x8
         #print('s1 = 0x' + x8)
+        c = c + c3
         c4 = 's2 = 0x' + x16
         #print('s2 = 0x' + x16)
-
-        c5 = 'z1 = 0x' + res1
+        c = c + c4
+        c5 = 'z1 = 0x' + res1 + '\n'
        #print('z1 = 0x' + res1)
+        c = c + c5
         c6 = 'z2 = 0x' + res
         #print('z2 = 0x' + res)
+        c = c + c6 + '\n'
         c7 = 'K = GF(p)'
         #print('K = GF(p)')
+        c = c + c7 + '\n'
         c8 = 'K((z1*s2 - z2*s1)/(r*(s1-s2)))'
         #print('K((z1*s2 - z2*s1)/(r*(s1-s2)))')
+        c = c + c8
 
         # Запуск браузера выполнение вычислений и возврат результата с сайта https://sagecell.sagemath.org/
         from selenium import webdriver
@@ -88,14 +95,14 @@ for j in fList:
 
                 #browser.set_window_position(0, 0)
         browser.get("https://sagecell.sagemath.org/")
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c1 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c2 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c3 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c4 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c5 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c6 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c7 + '\n')
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c8)
+        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c2 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c3 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c4 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c5 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c6 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c7 + '\n')
+        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c8)
 
         #time.sleep(2)
         browser.find_element_by_xpath('//*[@id="cell"]/div[1]/button').click()

@@ -53,9 +53,9 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = 'D:\misak\Different\lockchain\locks/' # Directory where blk*.dat files are stored
+dirA = 'D:\misak\Разное\lockchain\locks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'D:\misak\Different\lockchain/' # Directory where to save parsing results
+dirB = 'D:\misak\Разное\lockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
@@ -275,21 +275,17 @@ for i in fList:
         for date_group, dates in sorted_data.items():
             if word in dates and dorw in dates:
                 text = str(dates)
-                kb = (text.partition('Input script')[2])[:79]
-                if '0220' in kb:
-                    b = text.partition('0220')[2]
-                    b1 = b[:64]
-                    b = (b.partition('Input script')[2])
-                    b2 = (b.partition('0220')[2])[:64]
-                    if b1 == b2:
-                        filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
-                elif '022100' in kb:
-                    b = text.partition('022100')[2]
-                    b1 = b[:64]
-                    b = (b.partition('Input script')[2])
-                    b2 = (b.partition('022100')[2])[:64]
-                    if b1 == b2:
-                        filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                b = text.partition('Input script = ')[2]
+                b1 = b[:20]
+
+                b = (b.partition('Input script = ')[2])
+                b2 = b[:20]
+
+                if b1 == b2:
+                    # print(b1)
+                    # print(b2)
+                    filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+
 
 
 
