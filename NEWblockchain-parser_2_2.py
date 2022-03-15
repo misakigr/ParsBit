@@ -260,7 +260,7 @@ for i in fList:
     sorted_data = {}
 
     word = 'Inputs count = 02'  # Искомое слово
-    dorw = 'Outputs count = 1'  # Искомое слово 2
+    dorw = 'Outputs count = 2'  # Искомое слово 2
 
     # with open(t) as file:
     last_group = None
