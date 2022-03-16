@@ -60,7 +60,7 @@ dirB = 'D:\misak\Different\lockchain/' # Directory where to save parsing results
 
 fList = os.listdir(dirA)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
-fList.sort(reverse=True)
+fList.sort(reverse=False)
 #Источник: https://pythonim.ru/list/metod-sort-python)
 
 for i in fList:
@@ -169,6 +169,7 @@ for i in fList:
                 RawTX = RawTX + reverse(tmpHex)
                 tmpHex = read_bytes(f,scriptLength,'B')
                 resList.append('Input script = ' + tmpHex)
+                iskr = (tmpHex)
                 RawTX = RawTX + tmpHex
                 tmpHex = read_bytes(f,4,'B')
                 resList.append('Sequence number = ' + tmpHex)
