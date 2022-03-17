@@ -287,7 +287,7 @@ for i in fList:
                             filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
                             print('Есть_1')
 
-                    if '022100' in b:
+                    elif '022100' in b:
                         b2 = (b.partition('022100')[2])[:64]
                         if b1 == b2:
                             filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
@@ -297,13 +297,13 @@ for i in fList:
                     b = text.partition('022100')[2]
                     b1 = b[:64]
                     b = (b.partition('Input script')[2])
-                    if '022100' in b:
-                        b2 = (b.partition('022100')[2])[:64]
+                    if '0220' in b:
+                        b2 = (b.partition('0220')[2])[:64]
                         if b1 == b2:
                             filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
                             print('Есть_3')
-                    elif '0220' in b:
-                        b2 = (b.partition('0220')[2])[:64]
+                    elif '022100' in b:
+                        b2 = (b.partition('022100')[2])[:64]
                         if b1 == b2:
                             filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
                             print('Есть_4')
