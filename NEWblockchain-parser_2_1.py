@@ -53,9 +53,9 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = 'D:\misak\Different\lockchain\locks/' # Directory where blk*.dat files are stored
+dirA = 'D:\misak\Разное\lockchain\locks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'D:\misak\Different\lockchain/' # Directory where to save parsing results
+dirB = 'D:\misak\Разное\lockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
@@ -281,16 +281,34 @@ for i in fList:
                     b = text.partition('0220')[2]
                     b1 = b[:64]
                     b = (b.partition('Input script')[2])
-                    b2 = (b.partition('0220')[2])[:64]
-                    if b1 == b2:
-                        filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
-                elif '022100' in kb:
+                    if '0220' in b:
+                        b2 = (b.partition('0220')[2])[:64]
+                        if b1 == b2:
+                            filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                            print('Есть_1')
+
+                    if '022100' in b:
+                        b2 = (b.partition('022100')[2])[:64]
+                        if b1 == b2:
+                            filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                            print('Есть_2')
+
+                if '022100' in kb:
                     b = text.partition('022100')[2]
                     b1 = b[:64]
                     b = (b.partition('Input script')[2])
-                    b2 = (b.partition('022100')[2])[:64]
-                    if b1 == b2:
-                        filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                    if '022100' in b:
+                        b2 = (b.partition('022100')[2])[:64]
+                        if b1 == b2:
+                            filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                            print('Есть_3')
+                    elif '0220' in b:
+                        b2 = (b.partition('0220')[2])[:64]
+                        if b1 == b2:
+                            filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                            print('Есть_4')
+                    #if b1 == b2:
+                        #filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
 
 
 
