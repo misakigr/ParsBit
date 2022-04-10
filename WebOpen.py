@@ -1,7 +1,6 @@
-from selenium import webdriver
-import time
 import os
-import re
+
+from selenium import webdriver
 
 c = ''
 
@@ -23,7 +22,6 @@ for i in fList:
 
     a = 0
     t = dirA + nameSrc
-    # resList.append('Start ' + t + ' in ' + str(datetime.datetime.now()))
     print('Start ' + t)
 
     with open(t) as file:
@@ -39,30 +37,16 @@ for i in fList:
                 browser.set_window_position(900, 900)
                 browser.get("https://btc.bitaps.com/raw/transaction/%s?format=json" % c)
 
-                # browser.find_element_by_xpath('//*[@id="search-box"]"]').send_keys(c)
-                # time.sleep(1)
+
                 browser.find_element_by_xpath('//*[@id="tx-info"]/div/i').click()
                 result = browser.find_element_by_xpath('//*[@id="raw-tx"]').text
-                # print('Транзакция:', result)
-                # resList.append(result)
 
                 file = open('trans.txt', 'a')
                 file.write(result + '\n')
                 file.close()
-                # time.sleep(2)
-                # browser.find_element_by_xpath('//*[@id="tx-hash"]/table/tbody/tr[6]/td[2]/a/text()').click()
-                # time.sleep(15)
-                # result = browser.find_element_by_xpath('// *[ @ id = "cell"] / div[3] / div[1] / div / div[2]').text
-                # print('Всего цифр в данном числе:', len(result))
-                # print('Оно выглядит так:', result)
 
             finally:
                 # browser.close()
                 pass
 
-        # f = open('trans.txt', 'a')
-        # for j in resList:
-        #     f.write(j + '\n')
-        # f.close()
-
-browser.close()
+    browser.close()

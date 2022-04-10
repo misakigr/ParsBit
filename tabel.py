@@ -96,22 +96,11 @@ for j in fList:
                 #browser.set_window_position(0, 0)
         browser.get("https://sagecell.sagemath.org/")
         phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c2 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c3 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c4 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c5 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c6 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c7 + '\n')
-        # phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c8)
 
         #time.sleep(2)
         browser.find_element_by_xpath('//*[@id="cell"]/div[1]/button').click()
         time.sleep(5)
         result = browser.find_element_by_xpath('// *[ @ id = "cell"] / div[3] / div[1] / div / div[2]').text
-        # print('Всего цифр в данном числе:', len(result))
-        # print('Оно выглядит так:', result)
-
-
 
         # finally:
         browser.close()

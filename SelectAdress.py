@@ -33,12 +33,6 @@ for i in fList:
             text = str(line)
             resList.append(text.partition(dorw)[2])
 
-    # f = open(dirB + nameSrc, 'w')
-    # for j in resList:
-    #     f.write(j + '\n')
-    # f.close()
-    # resList = []
-
 f = open('Lists.txt', 'w')
 for j in resList:
     f.write(j)
