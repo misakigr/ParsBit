@@ -33,8 +33,13 @@ for i in fList:
             text = str(line)
             resList.append(text.partition(dorw)[2])
 
-f = open('Lists.txt', 'w')
+f = open('Lists.txt', 'a')
 for j in resList:
     f.write(j)
 f.close()
 resList = []
+
+    # Удаление дубликатов строк
+file ='Lists.txt'
+uniqlines = set(open(file,'r', encoding='utf-8').readlines())
+gotovo = open(file,'w', encoding='utf-8').writelines(set(uniqlines))
