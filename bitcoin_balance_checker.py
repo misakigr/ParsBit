@@ -108,6 +108,11 @@ with open("Lists.txt") as file:
 
     # print("__________________________________________________\n")
 
+    # Удаление дубликатов строк
+file ='listing_byl.txt'
+uniqlines = set(open(file,'r', encoding='utf-8').readlines())
+gotovo = open(file,'w', encoding='utf-8').writelines(set(uniqlines))
+
 if __name__ == '__main__':
     # bot.polling(none_stop=True)
     pass
