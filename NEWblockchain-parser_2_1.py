@@ -53,14 +53,14 @@ def read_varint(file):
         data = b + data
     return data
 
-dirA = 'D:\misak\Different/blockchain/blocks/' # Directory where blk*.dat files are stored
+dirA = 'D:\misak\Разное/blockchain/blocks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'D:\misak\Different/blockchain/' # Directory where to save parsing results
+dirB = 'D:\misak\Разное/blockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
-fList.sort(reverse=False)
+fList.sort(reverse=True)
 #Источник: https://pythonim.ru/list/metod-sort-python)
 
 for i in fList:

@@ -48,15 +48,18 @@ def check_balance(address):
 
     print("\nBitcoin Address = " + check_address)
 
+
     blockchain_info_array = []
     tag = ''
     try:
         for tag in blockchain_tags_json:
             blockchain_info_array.append(
                 float(re.search(r'%s":(\d+),' % tag, htmltext).group(1)))
+            # print("Надо удалить проверенный адрес lists.txt")
     except:
-        print("Error '%s'." % tag);
-        exit(1)
+        # print("Error '%s'." % tag);
+        # exit(1)
+        pass
 
     for i, btc_tokens in enumerate(blockchain_info_array):
 

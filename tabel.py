@@ -95,7 +95,7 @@ for j in fList:
 
                 #browser.set_window_position(0, 0)
         browser.get("https://sagecell.sagemath.org/")
-        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c + '\n')
+        phn = browser.find_element_by_xpath('//*[@id="cell"]/div[1]/div[1]/div/div[1]/textarea').send_keys(c)
 
         #time.sleep(2)
         browser.find_element_by_xpath('//*[@id="cell"]/div[1]/button').click()
