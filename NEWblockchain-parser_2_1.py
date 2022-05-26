@@ -60,7 +60,7 @@ dirB = 'D:\misak\Разное/blockchain/' # Directory where to save parsing res
 
 fList = os.listdir(dirA)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
-fList.sort(reverse=True)
+fList.sort(reverse=False)
 #Источник: https://pythonim.ru/list/metod-sort-python)
 
 for i in fList:

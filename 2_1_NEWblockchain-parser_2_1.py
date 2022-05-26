@@ -58,9 +58,9 @@ def read_varint(file):
     return data
 
 
-dirA = 'D:\misak\Different/blockchain/blocks/' # Directory where blk*.dat files are stored
+dirA = 'D:/misak/Разное/blockchain/blocks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'D:\misak\Different/blockchain/' # Directory where to save parsing results
+dirB = 'D:/misak/Разное/blockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
@@ -146,7 +146,8 @@ for i in fList:
                 tmpHex = b + tmpHex
             inCount = int(tmpHex, 16)
             resList.append('Inputs count = ' + tmpHex)
-            print(tmpHex)
+            if tmpHex == '02':
+                print(tmpHex)
             tmpHex = tmpHex + tmpB
             RawTX = RawTX + reverse(tmpHex)
             for m in range(inCount):
