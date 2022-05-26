@@ -146,6 +146,7 @@ for i in fList:
                 tmpHex = b + tmpHex
             inCount = int(tmpHex, 16)
             resList.append('Inputs count = ' + tmpHex)
+            print(tmpHex)
             tmpHex = tmpHex + tmpB
             RawTX = RawTX + reverse(tmpHex)
             for m in range(inCount):
