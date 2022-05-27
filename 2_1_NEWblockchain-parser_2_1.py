@@ -61,7 +61,7 @@ is2 = ''
 dirA = 'D:\misak\Different/blockchain/blocks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
 dirB = 'D:\misak\Different/blockchain/' # Directory where to save parsing results
-#dirA = sys.argv[2]
+
 
 fList = os.listdir(dirA)
 fList = [x for x in fList if (x.endswith('.dat') and x.startswith('blk'))]
