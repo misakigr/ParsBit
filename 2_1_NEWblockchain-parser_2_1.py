@@ -56,11 +56,11 @@ def read_varint(file):
         b = b.hex().upper()
         data = b + data
     return data
-
-
-dirA = 'D:/misak/Разное/blockchain/blocks/' # Directory where blk*.dat files are stored
+is1 = ''
+is2 = ''
+dirA = 'D:\misak\Different/blockchain/blocks/' # Directory where blk*.dat files are stored
 #dirA = sys.argv[1]
-dirB = 'D:/misak/Разное/blockchain/' # Directory where to save parsing results
+dirB = 'D:\misak\Different/blockchain/' # Directory where to save parsing results
 #dirA = sys.argv[2]
 
 fList = os.listdir(dirA)
@@ -146,8 +146,6 @@ for i in fList:
                 tmpHex = b + tmpHex
             inCount = int(tmpHex, 16)
             resList.append('Inputs count = ' + tmpHex)
-            if tmpHex == '02':
-                print(tmpHex)
             tmpHex = tmpHex + tmpB
             RawTX = RawTX + reverse(tmpHex)
             for m in range(inCount):
@@ -285,7 +283,28 @@ for i in fList:
     with open('restest.txt', 'w') as filehandle:
         for date_group, dates in sorted_data.items():
             if word in dates and dorw in dates:
-                filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
+                is1 = dates[4]
+                if '022100' in is1[16:]:
+                    is1 = is1[:91]
+                    is1 = is1[27:]
+                    #print(is1)
+                if '0220' in is1[16:]:
+                    is1 = is1[:89]
+                    is1 = is1[25:]
+                    #print(is1)
+
+                is2 = dates[8]
+                #print(is2)
+                if '022100' in is2[16:]:
+                    is2 = is2[:91]
+                    is2 = is2[27:]
+                    #print(is2)
+                if '0220' in is2[16:]:
+                    is2 = is2[:89]
+                    is2 = is2[25:]
+                if is1 == is2:
+                    print(is1, is2)
+                    filehandle.writelines(place for place in (f"{date_group}: {dates}" + '\n'))
 
                 # text = str(dates)
                 # kb = (text.partition('Input script')[2])[:79]
